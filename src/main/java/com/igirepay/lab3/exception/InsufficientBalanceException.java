@@ -1,6 +1,6 @@
-package lab3.exception;
+package com.igirepay.lab3.exception;
 
-/** Thrown when an account does not have enough funds for a withdrawal/transfer. */
+
 public class InsufficientBalanceException extends Exception {
     public InsufficientBalanceException(double requested, double available) {
         super(String.format(

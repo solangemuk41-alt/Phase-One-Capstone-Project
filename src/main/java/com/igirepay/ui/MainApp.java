@@ -31,11 +31,10 @@ public class MainApp extends Application {
     }
 
     public static void showLoginScreen() {
-        // Root layout
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: #1a1a2e;");
 
-        // Center panel
+
         VBox centerBox = new VBox(20);
         centerBox.setAlignment(Pos.CENTER);
         centerBox.setPadding(new Insets(50));
@@ -50,7 +49,7 @@ public class MainApp extends Application {
         subtitle.setFont(Font.font("Arial", 16));
         subtitle.setTextFill(Color.web("#a8a8b3"));
 
-        // Card
+
         VBox card = new VBox(15);
         card.setStyle("-fx-background-color: #16213e; -fx-background-radius: 15; -fx-padding: 30;");
         card.setAlignment(Pos.CENTER_LEFT);
@@ -59,7 +58,6 @@ public class MainApp extends Application {
         loginLabel.setFont(Font.font("Arial", FontWeight.BOLD, 18));
         loginLabel.setTextFill(Color.WHITE);
 
-        // Phone field
         Label phoneLabel = new Label("Phone Number");
         phoneLabel.setTextFill(Color.web("#a8a8b3"));
         TextField phoneField = new TextField();
@@ -67,7 +65,6 @@ public class MainApp extends Application {
         phoneField.setStyle("-fx-background-color: #0f3460; -fx-text-fill: white; " +
                 "-fx-prompt-text-fill: #555; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 14;");
 
-        // PIN field
         Label pinLabel = new Label("PIN");
         pinLabel.setTextFill(Color.web("#a8a8b3"));
         PasswordField pinField = new PasswordField();

@@ -22,7 +22,6 @@ public class AccountsScreen {
 
         AccountDAO accountDAO = new AccountDAO();
         List<Account> accounts = accountDAO.getAccountsByCustomerId(MainApp.loggedInCustomer.getId());
-//        System.out.println;
 
         VBox accountsList = new VBox(12);
 
@@ -48,13 +47,13 @@ public class AccountsScreen {
                 id.setTextFill(Color.web("#a8a8b3"));
 
                 Label balance = new Label(String.format("%,.2f RWF", acc.getBalance()));
-//                System.out.println(acc.getBalance());
+
                 balance.setFont(Font.font("Arial", FontWeight.BOLD, 22));
                 balance.setTextFill(Color.WHITE);
 
                 info.getChildren().addAll(type, id, balance);
 
-                // Delete button (only for zero balance)
+
                 Button deleteBtn = new Button("Delete");
                 deleteBtn.setStyle("-fx-background-color: #e94560; -fx-text-fill: white; " +
                         "-fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand;");
@@ -90,14 +89,4 @@ public class AccountsScreen {
         alert.setContentText(msg);
         alert.showAndWait();
     }
-
-//    public static void main(String[] args) {
-//        AccountDAO accountDAO = new AccountDAO();
-//        List<Account> accounts = accountDAO.getAccountsByCustomerId(MainApp.loggedInCustomer.getId());
-//
-//        for (Account acc : accounts) {
-//            System.out.println(acc);
-//        }
-////        System.out.println(acco);
-//    }
 }
