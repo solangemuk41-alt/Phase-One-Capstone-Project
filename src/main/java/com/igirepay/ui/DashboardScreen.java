@@ -67,18 +67,9 @@ public class DashboardScreen {
         sidebar.getChildren().addAll(logo, userLabel);
 
         String[] menuItems = {
-                "Home",
-                "Update Profile",
-                "My Accounts",
-                "Create Wallet",
-                "Create Savings",
-                "Deposit",
-                "Withdraw",
-                "Transfer",
-                "Transactions",
-                "Export CSV",
-                "Change PIN",
-                "Logout"
+                "Home", "Update Profile", "My Accounts", "Create Wallet",
+                "Create Savings", "Deposit", "Withdraw", "Transfer", "Transactions",
+                "Export CSV", "Change PIN", "Logout"
         };
 
         for (String item : menuItems) {
@@ -96,8 +87,7 @@ public class DashboardScreen {
 
             btn.setOnMouseEntered(e ->
                     btn.setStyle(
-                            "-fx-background-color: #e94560;" +
-                                    "-fx-text-fill: white;" +
+                            "-fx-background-color: #e94560;" + "-fx-text-fill: white;" +
                                     "-fx-font-size: 14;" +
                                     "-fx-padding: 10 15;" +
                                     "-fx-cursor: hand;"
@@ -106,8 +96,7 @@ public class DashboardScreen {
 
             btn.setOnMouseExited(e ->
                     btn.setStyle(
-                            "-fx-background-color: transparent;" +
-                                    "-fx-text-fill: #a8a8b3;" +
+                            "-fx-background-color: transparent;" + "-fx-text-fill: #a8a8b3;" +
                                     "-fx-font-size: 14;" +
                                     "-fx-padding: 10 15;" +
                                     "-fx-cursor: hand;"
@@ -121,11 +110,9 @@ public class DashboardScreen {
 
         return sidebar;
     }
-
     static void handleMenu(String item) {
 
         switch (item) {
-
             case "Home":
                 showHome();
                 break;
@@ -185,7 +172,6 @@ public class DashboardScreen {
     static void showHome() {
 
         contentArea.getChildren().clear();
-
         Label welcome = new Label(
                 "Welcome back, " + MainApp.loggedInCustomer.getFullName() + "!"
         );
@@ -216,7 +202,6 @@ public class DashboardScreen {
                                 "-fx-padding: 20;"
                 );
                 card.setSpacing(20);
-
                 VBox info = new VBox(5);
 
                 Label type = new Label(acc.getAccountType() + " ACCOUNT");

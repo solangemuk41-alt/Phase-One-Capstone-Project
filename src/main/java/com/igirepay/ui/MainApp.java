@@ -40,7 +40,6 @@ public class MainApp extends Application {
         centerBox.setPadding(new Insets(50));
         centerBox.setMaxWidth(400);
 
-        // Logo / Title
         Label title = new Label("IgirePay");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 42));
         title.setTextFill(Color.web("#e94560"));
@@ -77,18 +76,18 @@ public class MainApp extends Application {
         errorLabel.setTextFill(Color.web("#e94560"));
         errorLabel.setFont(Font.font("Arial", 13));
 
-        // Login button
+
         Button loginBtn = new Button("Login");
         loginBtn.setMaxWidth(Double.MAX_VALUE);
         loginBtn.setStyle("-fx-background-color: #e94560; -fx-text-fill: white; " +
                 "-fx-background-radius: 8; -fx-padding: 12; -fx-font-size: 15; -fx-font-weight: bold; -fx-cursor: hand;");
 
-        // Register link
+
         Button registerBtn = new Button("Don't have an account? Register");
         registerBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #e94560; " +
                 "-fx-cursor: hand; -fx-font-size: 13; -fx-border-color: transparent;");
 
-        // Login action
+
         loginBtn.setOnAction(e -> {
             String phone = phoneField.getText().trim();
             String pin = pinField.getText().trim();
@@ -109,7 +108,7 @@ public class MainApp extends Application {
             }
         });
 
-        // Register action
+
         registerBtn.setOnAction(e -> RegisterScreen.show());
 
         card.getChildren().addAll(loginLabel, phoneLabel, phoneField, pinLabel, pinField,

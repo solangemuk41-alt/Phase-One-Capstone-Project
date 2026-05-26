@@ -46,7 +46,6 @@ public class ChangePinScreen {
                 msgLabel.setText("Please fill in all fields!");
                 return;
             }
-
             AuthService authService = new AuthService();
             boolean success = authService.changePin(
                     MainApp.loggedInCustomer.getPhoneNumber(), oldPin, newPin);
@@ -61,16 +60,13 @@ public class ChangePinScreen {
                 msgLabel.setText("Old PIN is incorrect!");
             }
         });
-
         card.getChildren().addAll(
                 label("Old PIN"), oldPinField,
                 label("New PIN"), newPinField,
                 msgLabel, changeBtn
         );
-
         contentArea.getChildren().addAll(title, card);
     }
-
     static Label label(String text) {
         Label l = new Label(text);
         l.setTextFill(Color.web("#a8a8b3"));

@@ -5,7 +5,6 @@ import com.igirepay.util.DBConnection;
 import java.sql.*;
 
 public class ProcessedRequestDAO {
-
     public boolean isAlreadyProcessed(String referenceId) {
         String sql = "SELECT id FROM processed_requests WHERE reference_id = ?";
 

@@ -14,7 +14,6 @@ public class AuthService {
             System.out.println("Customer not found!");
             return null;
         }
-
         if (customer.validatePin(pin)) {
             System.out.println("Login successful! Welcome, " + customer.getFullName());
             return customer;
@@ -33,7 +32,6 @@ public class AuthService {
             System.out.println("Old PIN is incorrect!");
             return false;
         }
-
         customer.setPin(newPin);
         customerDAO.updateCustomer(customer);
         System.out.println("PIN changed successfully!");

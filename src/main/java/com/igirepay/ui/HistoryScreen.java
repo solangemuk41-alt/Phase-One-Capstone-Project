@@ -54,16 +54,13 @@ public class HistoryScreen {
         TableColumn<Transaction, Double> amountCol = new TableColumn<>("Amount (RWF)");
         amountCol.setCellValueFactory(new PropertyValueFactory<>("amount"));
         amountCol.setPrefWidth(120);
-
         TableColumn<Transaction, String> timeCol = new TableColumn<>("Timestamp");
         timeCol.setCellValueFactory(new PropertyValueFactory<>("timestamp"));
         timeCol.setPrefWidth(160);
-
         table.getColumns().addAll(idCol, refCol, typeCol, amountCol, timeCol);
 
         Label msgLabel = new Label("");
         msgLabel.setTextFill(Color.web("#a8a8b3"));
-
         searchBtn.setOnAction(e -> {
             try {
                 int accountId = Integer.parseInt(accountIdField.getText().trim());

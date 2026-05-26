@@ -65,7 +65,6 @@ public class ExportScreen {
 
         contentArea.getChildren().addAll(title, card);
     }
-
     static Label label(String text) {
         Label l = new Label(text);
         l.setTextFill(Color.web("#a8a8b3"));
