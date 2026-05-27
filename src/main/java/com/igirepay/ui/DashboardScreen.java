@@ -23,7 +23,7 @@ public class DashboardScreen {
         root = new BorderPane();
         root.setStyle("-fx-background-color: #1a1a2e;");
 
-        // Sidebar (FIXED WITH SCROLL)
+
         ScrollPane sidebarScroll = new ScrollPane();
         sidebarScroll.setFitToWidth(true);
         sidebarScroll.setStyle("-fx-background: #0f3460; -fx-border-color: transparent;");
@@ -33,7 +33,7 @@ public class DashboardScreen {
 
         root.setLeft(sidebarScroll);
 
-        // Content area
+
         contentArea = new VBox(20);
         contentArea.setPadding(new Insets(30));
         contentArea.setStyle("-fx-background-color: #16213e;");
@@ -53,7 +53,7 @@ public class DashboardScreen {
         sidebar.setPadding(new Insets(20, 10, 20, 10));
         sidebar.setStyle("-fx-background-color: #0f3460;");
 
-        // Logo
+
         Label logo = new Label("IgirePay");
         logo.setFont(Font.font("Arial", FontWeight.BOLD, 24));
         logo.setTextFill(Color.web("#e94560"));

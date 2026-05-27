@@ -98,13 +98,11 @@ public class HistoryScreen {
             card.setPadding(new Insets(15, 20, 15, 20));
             card.setStyle("-fx-background-color: #0f3460; -fx-background-radius: 12;");
 
-            // Icon
             Label icon = new Label(getIcon(tx.getTransactionType()));
             icon.setFont(Font.font("Arial", FontWeight.BOLD, 22));
             icon.setTextFill(getTypeColor(tx.getTransactionType()));
             icon.setMinWidth(40);
 
-            // Middle info
             VBox info = new VBox(4);
             HBox.setHgrow(info, Priority.ALWAYS);
 
@@ -112,17 +110,16 @@ public class HistoryScreen {
             type.setFont(Font.font("Arial", FontWeight.BOLD, 14));
             type.setTextFill(getTypeColor(tx.getTransactionType()));
 
-            // Find recipient name for TRANSFER transactions
             if (tx.getTransactionType().equals("TRANSFER")) {
                 try {
-                    // Find the other transaction with same reference ID
+
                     List<Transaction> allTx = transactionDAO.getTransactionsByReferenceId(tx.getReferenceId());
                     for (Transaction other : allTx) {
                         if (other.getAccountId() != accountId) {
-                            // Get the other account's customer
+
                             Account otherAccount = accountDAO.getAccountById(other.getAccountId());
                             if (otherAccount != null) {
-                                // Find customer by their account
+
                                 List<Customer> allCustomers = customerDAO.getAllCustomers();
                                 for (Customer c : allCustomers) {
                                     if (c.getId() == otherAccount.getCustomerId()) {

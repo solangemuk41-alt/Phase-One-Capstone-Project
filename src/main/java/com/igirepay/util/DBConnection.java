@@ -10,19 +10,14 @@ public class DBConnection {
     private static final String USER = "postgres";
     private static final String PASSWORD = "1234";
 
-    private static Connection connection = null;
     public static Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Database connected successfully!");
-        }
-        return connection;
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
-    public static void closeConnection() {
+
+    public static void closeConnection(Connection connection) {
         try {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
-                System.out.println("Database connection closed.");
             }
         } catch (SQLException e) {
             System.out.println("Error closing connection: " + e.getMessage());

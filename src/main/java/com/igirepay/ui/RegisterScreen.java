@@ -29,7 +29,7 @@ public class RegisterScreen {
         VBox card = new VBox(12);
         card.setStyle("-fx-background-color: #16213e; -fx-background-radius: 15; -fx-padding: 30;");
 
-        // Fields
+
         TextField nameField = createField("Full Name", "Eg: Kalisa Jean");
         TextField emailField = createField("Email", "Eg: kalisa@gmail.com");
         TextField phoneField = createField("Phone Number", "Eg: 0788123456");

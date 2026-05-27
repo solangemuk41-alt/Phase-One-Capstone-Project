@@ -204,12 +204,10 @@ public class TransferScreen {
                         "\nFees: RWF " + String.format("%,.0f", fee) +
                         "\nTotal deducted: RWF " + String.format("%,.0f", totalCost)
         );
-        details.setTextFill(Color.web("#a8a8b3"));
-        details.setFont(Font.font("Arial", 14));
+        details.setTextFill(Color.web("#a8a8b3"));details.setFont(Font.font("Arial", 14));
         details.setWrapText(true);
 
-        Button doneBtn = new Button("Done");
-        doneBtn.setMaxWidth(Double.MAX_VALUE);
+        Button doneBtn = new Button("Done");doneBtn.setMaxWidth(Double.MAX_VALUE);
         doneBtn.setStyle("-fx-background-color: #1a6fc4; -fx-text-fill: white; " +
                 "-fx-background-radius: 25; -fx-padding: 14; -fx-font-size: 15; " +
                 "-fx-font-weight: bold; -fx-cursor: hand;");
