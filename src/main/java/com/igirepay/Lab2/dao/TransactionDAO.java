@@ -41,12 +41,12 @@ public class TransactionDAO {
 
             while (rs.next()) {
                 transactions.add(new Transaction(
-                    rs.getInt("id"),
-                    rs.getInt("account_id"),
-                    rs.getString("reference_id"),
-                    rs.getString("transaction_type"),
-                    rs.getDouble("amount"),
-                    rs.getString("created_at")
+                        rs.getInt("id"),
+                        rs.getInt("account_id"),
+                        rs.getString("reference_id"),
+                        rs.getString("transaction_type"),
+                        rs.getDouble("amount"),
+                        rs.getString("created_at")
                 ));
             }
 
@@ -67,12 +67,12 @@ public class TransactionDAO {
 
             if (rs.next()) {
                 return new Transaction(
-                    rs.getInt("id"),
-                    rs.getInt("account_id"),
-                    rs.getString("reference_id"),
-                    rs.getString("transaction_type"),
-                    rs.getDouble("amount"),
-                    rs.getString("created_at")
+                        rs.getInt("id"),
+                        rs.getInt("account_id"),
+                        rs.getString("reference_id"),
+                        rs.getString("transaction_type"),
+                        rs.getDouble("amount"),
+                        rs.getString("created_at")
                 );
             }
 
@@ -80,5 +80,34 @@ public class TransactionDAO {
             System.out.println("Error fetching transaction: " + e.getMessage());
         }
         return null;
+    }
+
+    // NEW: Get all transactions by reference ID (includes both sender and receiver)
+    public List<Transaction> getTransactionsByReferenceId(String referenceId) {
+        List<Transaction> transactions = new ArrayList<>();
+        String sql = "SELECT * FROM transactions WHERE reference_id = ? OR reference_id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, referenceId);
+            stmt.setString(2, referenceId + "-IN");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                transactions.add(new Transaction(
+                        rs.getInt("id"),
+                        rs.getInt("account_id"),
+                        rs.getString("reference_id"),
+                        rs.getString("transaction_type"),
+                        rs.getDouble("amount"),
+                        rs.getString("created_at")
+                ));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error fetching transactions by reference: " + e.getMessage());
+        }
+        return transactions;
     }
 }
